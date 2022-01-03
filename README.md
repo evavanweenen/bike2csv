@@ -10,9 +10,9 @@ pip install bike2csv
 ```
 
 ## Usage
-This code unzips `.gz` files, then converts this unzipped (`.fit`, `.FIT`, `.pwx` or `.tcx`) file to a `.csv` file. The code is designed such that all different file extensions are converted to roughly the same csv files (e.g. similar column names). This makes it easier for analyzing and merging the files later.
+This code unzips `.gz` files, then converts this unzipped (`.fit`, `.FIT`, `.pwx` or `.tcx`) file to a `.csv` file. The code is designed such that all different file extensions are converted to similar csv files (e.g. the same column names). This makes it easier for analyzing and merging the files later.
 
-If your exported files have a `.gz` format, you can run the sample script underneath to unzip your files and convert them to csv.
+If your exported files have a `.gz` format, you can run the sample script underneath to *unzip* your files and convert them to csv.
 ```python
 import os
 from bike2csv.converter import Converter
@@ -31,7 +31,7 @@ for file in os.listdir(_path_zip):
     converter.convert(file)
 ```
 
-If your exported files are not zipped anymore, you can run the following sample script to convert your files to csv.
+If your exported files are *not zipped* anymore, you can run the following sample script to convert your files to csv.
 ```python
 import os
 from bike2csv.converter import Converter
