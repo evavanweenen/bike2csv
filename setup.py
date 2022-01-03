@@ -1,4 +1,4 @@
-from setuptools import setuptools
+from setuptools import setup
 
 setup(name='bike2csv',
     version='0.1',
