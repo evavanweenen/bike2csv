@@ -53,10 +53,10 @@ A sample script can also be found under `bin/run.py`.
 If you are running into problems, feel welcome to contact the author (evanweenen@ethz.ch).
 
 ## Attribution
-To read `fit` files in python, this package makes use of the [fitparse](https://github.com/dtcooper/python-fitparse) package (c) David Cooper, Carey Metcalfe, 2021.
+To read `fit` files in python, this package makes use of the [fitparse](https://github.com/dtcooper/python-fitparse) package &copy; David Cooper, Carey Metcalfe, 2021.
 
 ## License
-This code is (c) E. van Weenen, 2022, and it is made available under the MIT license enclosed with the software.
+This code is &copy; E. van Weenen, 2022, and it is made available under the MIT license enclosed with the software.
 
 Over and above the legal restrictions imposed by this license, if you use this software for an academic publication then you are obliged to provide proper attribution. 
 ```
