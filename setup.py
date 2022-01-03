@@ -10,7 +10,7 @@ setup(
     author_email='evanweenen@ethz.ch',
     description='Convert FIT, PWX and TCX files from a bike computer to CSV',
     long_description=long_description,
-    long_dscription_content_type='text/markdown',
+    long_description_content_type='text/markdown',
     url='https://github.com/evavanweenen/bike2csv',
     license='MIT',
     packages=['bike2csv'],
