@@ -18,7 +18,7 @@ import os
 from bike2csv.converter import Converter
 
 root = 'data/'
-person = 'John Doe'
+person = 'Albert Einstein'
 
 path = dict(_path_zip = os.path.join(root, 'export', person), # where your .fit.gz files are saved
             _path_fit = os.path.join(root, 'fit', person), # where your .fit files will be saved
@@ -26,25 +26,24 @@ path = dict(_path_zip = os.path.join(root, 'export', person), # where your .fit.
 
 converter = Converter(**path)
 
-for file in os.listdir(path['_path_zip']):
-    converter.unzip(file)
+for file in os.listdir(converter.files):
     converter.convert(file)
 ```
 
-If your exported files are *not zipped* anymore, you can run the following sample script to convert your files to csv.
+If your exported files are *not zipped* anymore, you can run the following sample script to convert your files to csv. Note that the only difference is whether you give `_path_zip` to the `Converter` class. If you do not give it a `_path_zip`, it simply assumes your files are already unzipped.
 ```python
 import os
 from bike2csv.converter import Converter
 
 root = 'data/'
-person = 'John Doe'
+person = 'Albert Einstein'
 
 path = dict(_path_fit = os.path.join(root, 'fit', person), # where your .fit files are be saved
             _path_csv = os.path.join(root, 'csv', person)) # where the .csv files will be saved
 
 converter = Converter(**path)
 
-for file in os.listdir(path['_path_fit']):
+for file in os.listdir(converter.files):
     converter.convert(file)
 ```
 You can of course adjust the script as you please. 
