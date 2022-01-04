@@ -22,30 +22,40 @@ class Converter(object):
         if not os.path.exists(self._path_csv):
             os.makedirs(self._path_csv)
 
-        self.FILE = {   '.fit'    : FIT,
-                        '.FIT'    : FIT,
-                        '.pwx'    : PWX,
-                        '.tcx'    : TCX}
+        self.extension_map = {  '.fit'    : FIT,
+                                '.FIT'    : FIT,
+                                '.pwx'    : PWX,
+                                '.tcx'    : TCX}
 
-    def unzip(self, file):
-        # split xxx.fit | .gz
-        base, _ = os.path.splitext(file)
+        if self.do_unzip():
+            self.files = os.listdir(_path_zip)
+        else:
+            self.files = os.listdir(_path_fit)
 
-        if not os.path.exists(os.path.join(self._path_fit, base)):
-            os.system(f"gzip -dk '{self._path_zip}/{file}'")
-            os.system(f"mv '{self._path_zip}/{base}' '{self._path_fit}/{base}'")
+    def do_unzip(self):
+        return self._path_zip is not None
 
     def convert(self, file):
-        # split xxx | .fit
-        file, _ = os.path.splitext(file)
-        base, extension = os.path.splitext(file)
+        #file = self.files[n]
 
+        if self.do_unzip():
+            # split xxx.fit | .gz
+            file, zext = os.path.splitext(file)
+
+            if not os.path.exists(os.path.join(self._path_fit, file)):
+                os.system(f"gzip -dk '{self._path_zip}/{file}{zext}'")
+                os.system(f"mv '{self._path_zip}/{file}' '{self._path_fit}/{file}'")
+
+        # split xxx | .fit
+        base, ext = os.path.splitext(file)
+
+        # convert .fit file to csv
         if not os.path.exists(f'{self._path_csv}/record/{base}_record.csv'):
             print(base)
             if os.path.exists(os.path.join(self._path_fit, file)):
-                if extension in self.FILE:
-                    self.FILE[extension](file, self._path_fit, self._path_csv).parse()
+                if ext in self.extension_map:
+                    self.extension_map[ext](file, self._path_fit, self._path_csv).parse()
                 else:
-                    raise NotImplementedError(f"{extension} not implemented.")
+                    raise NotImplementedError(f"{ext} not implemented.")
             else:
-                raise ValueError(f"{extension} file could not be obtained.")
+                raise ValueError(f"{ext} file could not be obtained.")
