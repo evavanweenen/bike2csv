@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='bike2csv',
-    version='0.1',
+    version='0.1.1',
     author='Eva van Weenen',
     author_email='evanweenen@ethz.ch',
     description='Convert FIT, PWX and TCX files from a bike computer to CSV',
@@ -16,5 +16,5 @@ setup(
     packages=['bike2csv'],
     scripts=['bin/run.py'],
     zip_safe=False,
-    install_requires=['fitparse']
+    install_requires=['fitparse', 'numpy', 'pandas']
     )
