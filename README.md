@@ -26,7 +26,7 @@ path = dict(_path_zip = os.path.join(root, 'export', person), # where your .fit.
 
 converter = Converter(**path)
 
-for file in os.listdir(converter.files):
+for file in converter.files:
     converter.convert(file)
 ```
 
@@ -43,7 +43,7 @@ path = dict(_path_fit = os.path.join(root, 'fit', person), # where your .fit fil
 
 converter = Converter(**path)
 
-for file in os.listdir(converter.files):
+for file in converter.files:
     converter.convert(file)
 ```
 You can of course adjust the script as you please. 

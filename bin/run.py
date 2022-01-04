@@ -10,7 +10,7 @@ def main():
 
     converter = Converter(**vars(args))
 
-    for file in os.listdir(converter.files):
+    for file in converter.files:
         converter.convert(file)
 
 if __name__ == '__main__':
