@@ -10,8 +10,7 @@ def main():
 
     converter = Converter(**vars(args))
 
-    for file in os.listdir(args._path_zip):
-        converter.unzip(file)
+    for file in os.listdir(converter.files):
         converter.convert(file)
 
 if __name__ == '__main__':
