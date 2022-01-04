@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='bike2csv',
-    version='0.1.2',
+    version='0.1.3',
     author='Eva van Weenen',
     author_email='evanweenen@ethz.ch',
     description='Convert FIT, PWX and TCX files from a bike computer to CSV',
