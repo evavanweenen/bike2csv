@@ -302,6 +302,9 @@ class TCX(XML):
             df['position_long'] = df['position_long'].astype(float) / (180 / 2**31)
         df['timestamp'] = pd.to_datetime(df['timestamp'])
 
+        # convert timestamp to UTC timezone (and remove tz info, similar to FIT files)
+        df['timestamp'] = df['timestamp'].dt.tz_convert(0).dt.tz_localize(None)
+
         self.save_file(df, 'record')
         return df
 
