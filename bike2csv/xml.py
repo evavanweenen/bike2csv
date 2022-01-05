@@ -138,7 +138,6 @@ class PWX(XML):
             if 'timeoffset' in df:
                 df['timestamp'] = self.start_time + pd.to_timedelta(df['timeoffset'].astype(float), unit='S')
                 df = df.drop('timeoffset', axis=1)
-                df = df.set_index('timestamp')
             df = df.rename(columns=self.fitnames)
             self.save_file(df, 'event')
             return df
@@ -149,7 +148,6 @@ class PWX(XML):
             if 'timeoffset' in df:
                 df['timestamp'] = self.start_time + pd.to_timedelta(df['timeoffset'].astype(float), unit='S')
                 df = df.drop('timeoffset', axis=1)
-                df = df.set_index('timestamp')
             df = df.rename(columns=self.fitnames)
 
             # convert degrees to semicircles (similar to .fit files)
