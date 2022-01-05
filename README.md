@@ -2,6 +2,7 @@
 
 Parse any file obtained from a bike computer to a csv file.
 This packages supports the following file extensions: `.fit`, `.FIT`, `.pwx` and `.tcx`.
+The package might also work for converting files from other workout types (e.g. running, swimming) to csv, but has not been tested yet for this purpose. Feel free to do so and raise issues!
 
 ## Installation
 The package is available under pypi:
